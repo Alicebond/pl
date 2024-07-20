@@ -5,14 +5,10 @@ val date1 = (2018, 10, 5) means 2018 October 5th
 
 (* 1. *)
 fun is_older (d1 : int*int*int, d2 : int*int*int) =
-    if (#1 d1 < #1 d2)
-    then true
-    else if ((#1 d1 = #1 d2) andalso (#2 d1 < #2 d2))
-    then true
-    else if ((#1 d1 = #1 d2) andalso (#2 d1 =  #2 d2)
+    (#1 d1 < #1 d2)
+    orelse ((#1 d1 = #1 d2) andalso (#2 d1 < #2 d2))
+    orelse ((#1 d1 = #1 d2) andalso (#2 d1 =  #2 d2)
 	     andalso (#3 d1 < #3 d2))
-    then true
-    else false;
 
 (* 2. *)
 fun number_in_month (ds : (int*int*int) list, m : int) =
